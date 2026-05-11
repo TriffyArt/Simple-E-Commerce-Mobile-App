@@ -1,5 +1,11 @@
-import { Stack } from "expo-router";
+import "../global.css";
+import { CartProvider } from "../src/context/CartContext";
+import { Slot } from "expo-router";
 
-export default function RootLayout() {
-  return <Stack screenOptions={{ headerShown: false }} />;
+export default function Layout() {
+  return (
+    <CartProvider>
+      <Slot />
+    </CartProvider>
+  );
 }

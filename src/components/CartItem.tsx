@@ -1,30 +1,22 @@
 ﻿import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import Checkbox from "expo-checkbox";
 import { Ionicons } from "@expo/vector-icons";
 
 import { Product } from "../types/Product";
 
 interface Props {
   Product: Product;
-  onToggle: (id: string) => void;
-  onDelete: (id: string) => void;
+  onDelete: (id: number) => void;
 }
 
-export default function ProductItem({
+export default function CartItem({
   Product,
-  onToggle,
   onDelete,
 }: Props) {
   return (
     <View style={styles.row}>
       <View style={styles.left}>
-        <Checkbox
-          value={Product.stocks}
-          onValueChange={() => onToggle(Product.id)}
-          style={styles.checkbox}
-        />
-        <Text style={[styles.title, Product.stocks && styles.completedTitle]}>
-          {Product.productName}
+        <Text style={styles.title}>
+          {Product.name}
         </Text>
       </View>
 
@@ -50,16 +42,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex: 1,
   },
-  checkbox: {
-    marginRight: 12,
-  },
   title: {
     flex: 1,
     fontSize: 16,
     color: "#0f172a",
-  },
-  completedTitle: {
-    textDecorationLine: "line-through",
-    opacity: 0.4,
   },
 });
