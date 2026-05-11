@@ -1,5 +1,7 @@
-export interface Task {
-    id: string;
-    title: string;
-    completed: boolean;
+export interface Product {
+    id: number;
+    name: string;
+    price: number;
+    imageUrl: string;
+    quantity: number;
 };
