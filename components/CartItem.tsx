@@ -2,16 +2,16 @@
 import Checkbox from "expo-checkbox";
 import { Ionicons } from "@expo/vector-icons";
 
-import { Task } from "../types/task";
+import { Product } from "../types/Product";
 
 interface Props {
-  task: Task;
+  Product: Product;
   onToggle: (id: string) => void;
   onDelete: (id: string) => void;
 }
 
-export default function TaskItem({
-  task,
+export default function ProductItem({
+  Product,
   onToggle,
   onDelete,
 }: Props) {
@@ -19,16 +19,16 @@ export default function TaskItem({
     <View style={styles.row}>
       <View style={styles.left}>
         <Checkbox
-          value={task.completed}
-          onValueChange={() => onToggle(task.id)}
+          value={Product.stocks}
+          onValueChange={() => onToggle(Product.id)}
           style={styles.checkbox}
         />
-        <Text style={[styles.title, task.completed && styles.completedTitle]}>
-          {task.title}
+        <Text style={[styles.title, Product.stocks && styles.completedTitle]}>
+          {Product.productName}
         </Text>
       </View>
 
-      <TouchableOpacity onPress={() => onDelete(task.id)}>
+      <TouchableOpacity onPress={() => onDelete(Product.id)}>
         <Ionicons name="trash-outline" size={24} color="#ef4444" />
       </TouchableOpacity>
     </View>

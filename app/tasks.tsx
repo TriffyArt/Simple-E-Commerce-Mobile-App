@@ -9,7 +9,7 @@ import {
   Alert,
 } from "react-native";
 
-import { Task } from "../types/task";
+import { Task } from "../types/Product";
 import TaskItem from "../components/TaskItem";
 import StatsPanel from "../components/StatsPanel";
 import EmptyState from "../components/EmptyState";
